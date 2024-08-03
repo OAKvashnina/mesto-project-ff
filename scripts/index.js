@@ -10,7 +10,7 @@ const createCard = (card, deleteCard) => {
     .querySelector(".places__item")
     .cloneNode(true);
   const cardDeleteButton = cardElement.querySelector(".card__delete-button");
-  const cardImage = cardElement.querySelector(".card__image")
+  const cardImage = cardElement.querySelector(".card__image");
   cardImage.src = card.link;
   cardImage.alt = card.name;
   cardElement.querySelector(".card__title").textContent = card.name;
