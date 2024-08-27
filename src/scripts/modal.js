@@ -14,13 +14,13 @@ const closeModal = () => {
 
 const closeOverlay = (evt)=> {
  if (evt.target.classList.contains('popup')){
-  closeModal(evt.target);
+  closeModal();
  }
 };
 const closeKey = (evt)=> {
   if (evt.key === 'Escape'){
     closeModal();
-   }  
-}
+  }  
+};
 
 export {openModal, closeModal};

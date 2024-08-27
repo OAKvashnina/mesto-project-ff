@@ -1,6 +1,7 @@
 
 import '../pages/index.css';
-import {initialCards, createCard, deleteCard, likeCard} from './cards.js';
+import {initialCards} from './cards.js';
+import {createCard, deleteCard, likeCard} from './card.js';
 import {openModal, closeModal} from './modal.js';
 
 // @todo: Темплейт карточки
@@ -25,11 +26,10 @@ const formNewPlace = document.forms['new-place'];
 const placeNameInput = formNewPlace.elements['place-name'];
 const linkInput = formNewPlace.elements['link'];
 
-const openCard = (evt) => {
-  const img = evt.target;
-  popupImg.src = img.src;
-  popupImg.alt = img.alt;
-  popupCaption.textContent = img.alt;
+const openCard = (alt, src) => {
+  popupImg.src = src;
+  popupImg.alt = alt;
+  popupCaption.textContent = alt;
   openModal(popupImage);
 };
 
