@@ -66,7 +66,7 @@ export const clearValidation = (form, validConf) => {
   toggleButtonState(inputElements, buttonElement, validConf);
   inputElements.forEach((inputElement) => { 
     inputElement.classList.remove(validConf.inputErrorClass);
-    let errorElement = form.querySelector(`.${inputElement.id}-error`);
+    const errorElement = form.querySelector(`.${inputElement.id}-error`);
     errorElement.classList.remove(validConf.errorClass);
     errorElement.textContent = '';
   });

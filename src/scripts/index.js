@@ -85,7 +85,8 @@ profileAdd.addEventListener('click', ()=> {
 
 popupCloses.forEach((popupClose)=> {
   popupClose.addEventListener('click', (evt)=> {
-    closeModal();
+    const openPopup = document.querySelector('.popup_is-opened');
+    closeModal(openPopup);
   });
 });
 
@@ -96,7 +97,7 @@ const handleFormEditSubmit = (evt) => {
   .then((dataUser) => {
     profileTitle.textContent = dataUser.name;
     profileDescription.textContent = dataUser.about;
-    closeModal();
+    closeModal(popupEdit);
   })
   .catch((err) => {
     console.log(err);
@@ -116,11 +117,11 @@ const handleFormNewSubmit = (evt) => {
   evt.submitter.textContent = 'Сохранение...';
   addCard(placeNameInput.value, linkInput.value)
   .then((dataCard) => {
-    let card = dataCard;
+    const card = dataCard;
     const cardData = {card, userId: userId, cardTemplate, deleteCard, openCard, likeCard};
     placesList.prepend(createCard(cardData));
     evt.target.reset();
-    closeModal();
+    closeModal(popupNewCard);
   })
   .catch((err) => {
     console.log(err);
@@ -147,7 +148,7 @@ const handleFormUpdAvatarSubmit = (evt) => {
   .then((dataUser) => {
     profileImage.style.backgroundImage = `url(${dataUser.avatar})`;
     evt.target.reset();
-    closeModal();
+    closeModal(popupUpdateAvatar);
   })
   .catch((err) => {
     console.log(err);
