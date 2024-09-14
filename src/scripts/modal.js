@@ -1,11 +1,10 @@
-
-const openModal = (popup) => {
+export const openModal = (popup) => {
   popup.classList.add('popup_is-opened');
   popup.addEventListener('click', closeOverlay);
   document.addEventListener('keydown', closeKey);
 };
 
-const closeModal = () => {
+export const closeModal = () => {
   const openPopup = document.querySelector('.popup_is-opened');
   openPopup.classList.remove('popup_is-opened');
   openPopup.removeEventListener('click', closeOverlay);
@@ -22,5 +21,3 @@ const closeKey = (evt)=> {
     closeModal();
   }  
 };
-
-export {openModal, closeModal};
